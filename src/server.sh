@@ -28,7 +28,7 @@ startServer() {
         chmod +x ngrok
         rm -rf ngrok-stable-linux-arm.zip
       else
-        printf "\e[1;93m[!] Download error... \e[0m\n"
+        printf "\e[1;93m[!] Download error... :/\e[0m\n"
         exit 1
       fi
 
@@ -39,7 +39,7 @@ startServer() {
         chmod +x ngrok
         rm -rf ngrok-stable-linux-386.zip
       else
-        printf "\e[1;93m[!] Download error... \e[0m\n"
+        printf "\e[1;93m[!] Download error... :/\e[0m\n"
         exit 1
       fi
     fi
