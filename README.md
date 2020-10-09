@@ -16,6 +16,6 @@ sudo bash phishim.sh
 
 #### SullFurix (@sullfurix): https://github.com/SullFurix
 
-### Donate!
+### Donate:
 
-
+http://sullfurix.rf.gd/
