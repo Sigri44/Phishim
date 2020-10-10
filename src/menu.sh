@@ -10,7 +10,7 @@ menu() {
   done
   for((option=1;option<=${#dirs[@]};option++))
   do
-    website=$(echo "${dirs[option]}" | cut -d'/' -f2)
+    website=$(echo "${dirs[option]}" | awk -F/ '{print $NF}')
     printf "\e[1;92m[\e[0m\e[1;77m"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m\n"
   done
   printf "\n"
