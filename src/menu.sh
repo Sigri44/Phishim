@@ -11,7 +11,14 @@ menu() {
   for((option=1;option<=${#dirs[@]};option++))
   do
     website=$(echo "${dirs[option]}" | awk -F/ '{print $NF}')
-    printf "\e[1;92m[\e[0m\e[1;77m"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m\n"
+    if [[ ($option -ge 1) && ($option -le 9) ]]; then
+      printf "\e[2C\e[1;92m[\e[0m\e[1;77m0"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m"
+    else
+      printf "\e[2C\e[1;92m[\e[0m\e[1;77m"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m"
+    fi
+    if [ $(($option%2)) == 0 ]; then
+      printf "\n"
+    fi
   done
   printf "\n"
   printf "\e[1;92m[\e[0m\e[1;77m96\e[0m\e[1;92m]\e[0m\e[1;93mDisclaimer  \e[0m\e[1;92m[\e[0m\e[1;77m97\e[0m\e[1;92m]\e[0m\e[1;93mCredits  \e[0m\e[1;92m[\e[0m\e[1;77m98\e[0m\e[1;92m]\e[0m\e[1;93mCreate  \e[0m\e[1;92m[\e[0m\e[1;77m99\e[0m\e[1;92m]\e[0m\e[1;93mExit\e[0m\n"
