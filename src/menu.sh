@@ -11,19 +11,33 @@ menu() {
   for((option=1;option<=${#dirs[@]};option++))
   do
     website=$(echo "${dirs[option]}" | awk -F/ '{print $NF}')
-    if [[ ($option -ge 1) && ($option -le 9) ]]; then
-      printf "\e[2C\e[1;92m[\e[0m\e[1;77m0"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m"
-    else
-      printf "\e[2C\e[1;92m[\e[0m\e[1;77m"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m"
-    fi
+
     if [ $(($option%2)) == 0 ]; then
+
+      if [[ ($option -ge 1) && ($option -le 9) ]]; then
+        lastOption=$(($option - 1))
+        lastWebsite=$(echo "${dirs[$lastOption]}" | awk -F/ '{print $NF}')
+        char=$((22 - ${#lastWebsite}))
+        printf "\e["$char"C\e[1;92m[\e[0m\e[1;77m0"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m"
+      else
+        lastOption=$(($option - 1))
+        lastWebsite=$(echo "${dirs[$lastOption]}" | awk -F/ '{print $NF}')
+        char=$((22 - ${#lastWebsite}))
+        printf "\e["$char"C\e[1;92m[\e[0m\e[1;77m"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m"
+      fi
       printf "\n"
-    fi
+    else
+        if [[ ($option -ge 1) && ($option -le 9) ]]; then
+          printf "\e[2C\e[1;92m[\e[0m\e[1;77m0"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m"
+        else
+          printf "\e[2C\e[1;92m[\e[0m\e[1;77m"$option"\e[0m\e[1;92m]\e[0m\e[1;91m "$website"\e[0m"
+        fi
+  fi
   done
   printf "\n"
-  printf "\e[1;92m[\e[0m\e[1;77m96\e[0m\e[1;92m]\e[0m\e[1;93mDisclaimer  \e[0m\e[1;92m[\e[0m\e[1;77m97\e[0m\e[1;92m]\e[0m\e[1;93mCredits  \e[0m\e[1;92m[\e[0m\e[1;77m98\e[0m\e[1;92m]\e[0m\e[1;93mCreate  \e[0m\e[1;92m[\e[0m\e[1;77m99\e[0m\e[1;92m]\e[0m\e[1;93mExit\e[0m\n"
+  printf "\e[2C\e[1;92m[\e[0m\e[1;77m96\e[0m\e[1;92m]\e[0m\e[1;93mDisclaimer \e[0m\e[1;92m[\e[0m\e[1;77m97\e[0m\e[1;92m]\e[0m\e[1;93mCredits \e[0m\e[1;92m[\e[0m\e[1;77m98\e[0m\e[1;92m]\e[0m\e[1;93mCreate \e[0m\e[1;92m[\e[0m\e[1;77m99\e[0m\e[1;92m]\e[0m\e[1;93mExit\e[0m\n"
   printf "\n"
-  read -p $'\n\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Choose an option: \e[0m\en' option
+  read -p $'\n\e[2C\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Choose an option: \e[0m\en' option
   numberOfDirectory=${#dirs[@]}
 
   if [[ $option == 96 ]]; then

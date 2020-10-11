@@ -4,7 +4,7 @@ startServer() {
 
   printf "\n"
   printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m]\e[0m\e[1;93m Ngrok\e[0m\n"
-
+  printf "\n"
   if [[ -e web/$server/ip.txt ]]; then
     rm -rf web/$server/ip.txt
   fi
